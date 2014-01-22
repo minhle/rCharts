@@ -80,7 +80,8 @@ toJSON2 <- function(x, ...){
 toChain2 <- function(x, obj){
   if (length(x) == 0 || is.null(x)) return("")
   config <- sapply(names(x), USE.NAMES = F, function(key){
-    sprintf("  .%s(%s)", key, toJSON2(x[[key]]))
+    #sprintf("  .%s(%s)", key, toJSON2(x[[key]]))
+    sprintf("  .%s(%s)", key, toJSON2(x[[key]],  digits = 13))
   })
   paste(c(obj, config), collapse = '\n')
 }
